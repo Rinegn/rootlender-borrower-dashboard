@@ -4,7 +4,7 @@ export default function Page() {
   return (
     <AppShell>
       <h1>RootLender Borrower Dashboard</h1>
-      <p>Scaffold is live. Next: connect Recovery + Protection APIs using mock data first.</p>
+      <p>Scaffold is live. Next step: wire Recovery + Protection APIs.</p>
     </AppShell>
   );
 }

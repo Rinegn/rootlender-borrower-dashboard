@@ -1,4 +1,9 @@
 ﻿/* RootLender Borrower Dashboard - baseline scaffold */
-html, body { padding: 0; margin: 0; font-family: Arial, sans-serif; }
-a { color: inherit; text-decoration: none; }
-* { box-sizing: border-box; }
+html, body {
+  padding: 0;
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+* {
+  box-sizing: border-box;
+}
