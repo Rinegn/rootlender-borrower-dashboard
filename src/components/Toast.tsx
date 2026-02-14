@@ -2,45 +2,40 @@
 
 import { useEffect } from "react";
 
-export type ToastType = "success" | "error" | "info";
-
 export function Toast({
   message,
   type,
   onClose,
-  durationMs = 2500
+  ms = 2200,
 }: {
   message: string;
-  type: ToastType;
+  type: "success" | "error";
   onClose: () => void;
-  durationMs?: number;
+  ms?: number;
 }) {
   useEffect(() => {
-    const t = setTimeout(() => onClose(), durationMs);
+    const t = setTimeout(onClose, ms);
     return () => clearTimeout(t);
-  }, [durationMs, onClose]);
+  }, [onClose, ms]);
 
-  const colors: Record<ToastType, { bg: string; color: string; border: string }> = {
-    success: { bg: "#d4edda", color: "#155724", border: "#c3e6cb" },
-    error: { bg: "#f8d7da", color: "#721c24", border: "#f5c6cb" },
-    info: { bg: "#d1ecf1", color: "#0c5460", border: "#bee5eb" }
+  const colors = {
+    success: { bg: "#d4edda", color: "#155724" },
+    error: { bg: "#f8d7da", color: "#721c24" }
   };
 
   return (
     <div
       style={{
         position: "fixed",
-        top: 18,
-        right: 18,
-        padding: "12px 16px",
-        borderRadius: 8,
+        top: "20px",
+        right: "20px",
+        padding: "12px 18px",
+        borderRadius: "8px",
         backgroundColor: colors[type].bg,
         color: colors[type].color,
         fontWeight: 700,
-        border: "1px solid " + colors[type].border,
-        boxShadow: "0 6px 16px rgba(0,0,0,0.12)",
+        boxShadow: "0 10px 20px rgba(0,0,0,0.12)",
         zIndex: 9999,
-        maxWidth: 360
       }}
     >
       {message}
